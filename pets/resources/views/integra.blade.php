@@ -7,7 +7,7 @@
             <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item fs-sm"><a href="{{ url('/') }}">Home</a></li>
                 <li class="breadcrumb-item fs-sm"><a href="{{ url('adotar') }}">Quero Adotar</a></li>
-                <li class="breadcrumb-item active fs-sm" aria-current="page">Tini</li>
+                <li class="breadcrumb-item active fs-sm" aria-current="page">{{ $animal->nome }}</li>
             </ol>
         </div>
     </nav>
@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="col-12">
-                        <a href="{{ url('formu') }}" class="btn btn-custom mt-5 w-100 d-flex align-items-center justify-content-center gap-2">
+                        <a href="{{ route('formu.detalhe', $animal->id) }}" class="btn btn-custom mt-5 w-100 d-flex align-items-center justify-content-center gap-2">
                             Solicitar adoção
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">

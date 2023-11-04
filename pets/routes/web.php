@@ -30,7 +30,7 @@ Route::get('formu', function () {
 });
 
 Route::get('cadastrar', function () {
-    return view('quero-adotar');
+    return view('cadastrar');
 });
 
 Route::get('inte', function () {
@@ -55,4 +55,9 @@ Route::get('recuperar', function () {
 
 Route::get('adotar', [App\Http\Controllers\AnimalController::class, 'adotar'])->name('adotar');
 
+Route::post('adotar', [App\Http\Controllers\FiltroAnimalController::class, 'adotarBusca'])->name('adotar.busca');
+Route::post('adotar/busca', [App\Http\Controllers\FiltroAnimalController::class, 'adotarbusca'])->name('adotar.busca');
+
 Route::get('integra/integraDetalhe/{id}', [App\Http\Controllers\AnimalDetalhesController::class, 'integraDetalhe'])->name('integra.detalhe');
+
+Route::get('formu/formuDetalhe/{id}', [App\Http\Controllers\AnimalFormuController::class, 'formuDetalhe'])->name('formu.detalhe');

@@ -1,48 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBRTEC PETS</title>
+@extends('layouts.app')
 
-    <link rel="icon" type="image/x-icon" href="favicon1.ico">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <link href="css/petsstyle.css" rel="stylesheet">
-</head>
-<body>
-    <header class="border-bottom-1 shadow py-3">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-4">
-                    <a href="{{ url('/') }}" title="KBR TEC" class="d-inline-block">
-                        <h1>
-                            <img src="img/logo.webp" alt="KBR TEC" width="150">
-                        </h1>
-                    </a>
-                </div>
-
-                <div class="col-8">
-                    <nav class="d-flex gap-4 align-items-center justify-content-end">
-                        <a href="{{ url('/') }}">Home</a>
-                        <a href="{{ url('adotar') }}">Quero Adotar</a>
-                        <a href="{{ url('login') }}" class="btn btn-custom">Admin</a>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+@section('content')
 
     <nav aria-label="breadcrumb" class="p-3 bg-custom-light">
         <div class="container">
             <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item fs-sm"><a href="{{ url('/') }}">Home</a></li>
                 <li class="breadcrumb-item fs-sm"><a href="{{ url('adotar') }}">Quero Adotar</a></li>
-                <li class="breadcrumb-item fs-sm"><a href="{{ url('inte') }}">Tini</a></li>
+                <li class="breadcrumb-item fs-sm"><a href="{{ route('integra.detalhe', $animal->id) }}">{{ $animal->nome }}</a></li>
                 <li class="breadcrumb-item active fs-sm" aria-current="page">Formulário de Solicitação</li>
             </ol>
         </div>
@@ -62,7 +27,7 @@
 
                 <div class="form-group py-2 col-12">
                     <label for="animal" class="text-capitalize text-light">Nome <span class="text-lowercase">do</span> animal:</label>
-                    <input type="text" class="form-control" name="animal" id="animal" value="Tini" disabled>
+                    <input type="text" class="form-control" name="animal" id="animal" value="{{ $animal->nome }}" disabled>
                 </div>
 
                 <div class="form-group py-2 col-6">
@@ -100,25 +65,9 @@
 
                     <a href="#" class="btn btn-custom">Entre em contato</a>
                 </div>
-                <img src="img/cartoon-cat-3.webp" alt="Gato" width="150">
+                <img src="{{ asset('img/cartoon-cat-3.webp') }}" alt="Gato" width="150">
             </div>
         </div>
     </section>
 
-    <footer class="py-4">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <p class="m-0">
-                    Copyright © 2023. Todos os direitos reservados
-                </p>
-
-                <a href="https://www.kbrtec.com.br/" target="_blank" title="Acesse o site da KBR TEC">
-                    <img src="img/kbrtec.webp" alt="KBRTEC" width="100">
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-</body>
-</html>
+@endsection

@@ -1,42 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBRTEC PETS</title>
+@extends('layouts.app')
 
-    <link rel="icon" type="image/x-icon" href="favicon1.ico">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <link href="css/petsstyle.css" rel="stylesheet">
-</head>
-
-<body>
-    <header class="border-bottom-1 shadow py-3">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-4">
-                    <a href="{{ url('/') }}" title="KBR TEC" class="d-inline-block">
-                        <h1>
-                            <img src="img/logo.webp" alt="KBR TEC" width="150">
-                        </h1>
-                    </a>
-                </div>
-
-                <div class="col-8">
-                    <nav class="d-flex gap-4 align-items-center justify-content-end">
-                        <a href="{{ url('/') }}">Home</a>
-                        <a href="{{ url('adotar') }}">Quero Adotar</a>
-                        <a href="{{ url('login') }}" class="btn btn-custom">Admin</a>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+@section('content')
 
     <nav aria-label="breadcrumb" class="p-3 ps-5 bg-custom-light">
         <div class="container">
@@ -51,7 +15,7 @@
         <div class="container-fluid">
             <div class="row">
                 <aside style="width: 320px;">
-                    <form method="" class="bg-custom rounded p-3 text-uppercase pt-4 mt-2 position-sticky" style="top: 1rem;">
+                    <form method="POST" action="" class="bg-custom rounded p-3 text-uppercase pt-4 mt-2 position-sticky" style="top: 1rem;">
                         <div class="mb-3 text-light bowlby-one">
                             Filtros
                         </div>
@@ -60,13 +24,18 @@
                             <label for="especie" class="text-capitalize text-light">Espécie</label>
                             <select name="especie" id="especie" class="form-control form-select">
                                 <option value="" selected disabled>Selecione</option>
+                                <option value="Cachorro" enabled>Cachorro</option>
+                                <option value="Gato" enabled>Gato</option>
                             </select>
                         </div>
 
                         <div class="form-group py-2">
                             <label for="raca" class="text-capitalize text-light">Raça</label>
                             <select name="raca" id="raca" class="form-control form-select">
-                                <option value="" selected disabled>Selecione</option>
+                            <option value="" selected disabled>Selecione</option>
+                                @foreach($animais as $animal)
+                                        <option value="$raca" enabled>{{ $animal->raca }}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -78,7 +47,10 @@
                         <div class="form-group py-2">
                             <label for="porte" class="text-capitalize text-light">Porte</label>
                             <select name="porte" id="porte" class="form-control form-select">
-                                <option value="" selected disabled>Selecione</option>
+                            <option value="" selected disabled>Selecione</option>
+                                @foreach($animais as $animal)
+                                        <option value="$porte" enabled>{{ $animal->porte }}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -87,12 +59,12 @@
 
                             <div class="bg-light p-2 rounded d-flex flex-wrap row-gap-2">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sexo" id="femea" value="">
+                                    <input class="form-check-input" type="radio" name="genero" id="femea" value="F">
                                     <label class="form-check-label text-capitalize" for="femea">Fêmea</label>
                                 </div>
 
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sexo" id="macho" value="">
+                                    <input class="form-check-input" type="radio" name="genero" id="macho" value="M">
                                     <label class="form-check-label text-capitalize" for="macho">Macho</label>
                                 </div>
                             </div>
@@ -156,20 +128,5 @@
         </div>
     </section>
 
-    <footer class="py-4">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <p class="m-0">
-                    Copyright © 2023. Todos os direitos reservados
-                </p>
+@endsection
 
-                <a href="https://www.kbrtec.com.br/" target="_blank" title="Acesse o site da KBR TEC">
-                    <img src="img/kbrtec.webp" alt="KBRTEC" width="100">
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-</body>
-</html>
