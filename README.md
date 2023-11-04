@@ -6,5 +6,7 @@ Decidi enviar de uma forma inacabada e mais cedo pois ocorreram problemas no meu
 A database que usei é a "pets", está na folder "database", porém não tenho certeza se irá alcançá-la lá, coloque essa folder pets no folder de "mysql" na pasta xampp, caminho segue abaixo.
 C:\xampp\mysql\data
 
+A área de Admin está pendente e o Filtro não está funcional.
+
 Login(admin):	admin@kbrtec.com.br
 Senha: 123456789
